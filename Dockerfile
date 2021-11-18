@@ -1,6 +1,6 @@
-FROM python:3.8.5-alpine
+FROM python:2.7.8
 COPY . /app
 WORKDIR /app
-RUN pip3 install -r requirements.txt
-ENTRYPOINT ["python3"]
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python"]
 CMD ["app.py"]
