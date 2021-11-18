@@ -1,0 +1,7 @@
+flask
+opencv-python
+flask_cors
+requests
+asyncio
+lxml
+numpy
