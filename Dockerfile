@@ -3,4 +3,4 @@ COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 ENTRYPOINT ["python"]
-CMD ["detectobjects.py"]
+CMD ["app.py"]
