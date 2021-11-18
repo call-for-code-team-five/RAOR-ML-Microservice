@@ -1,5 +1,5 @@
-Flask
 opencv-python
+Flask
 flask_cors
 requests
 asyncio
