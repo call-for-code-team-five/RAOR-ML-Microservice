@@ -7,13 +7,16 @@ import numpy as np
 from flask import Flask, send_file, send_from_directory, request
 from flask_cors import CORS, cross_origin
 
-port = os.getenv("PORT")
-apikey = os.getenv("APIKEY")
-bucketid = os.getenv("BUCKETID")
+# port = os.getenv("PORT")
+# apikey = os.getenv("APIKEY")
+# bucketid = os.getenv("BUCKETID")
+port = 8080
+apikey = "M7m1jpF9nzFVFSqoJusmI7drwf77IR7bfRKm8OdMFIRb"
+bucketid = "roks-c5ooaecl02kmaahb914g-8c2f"
 
-app = Flask(__name__)
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+application = Flask(__name__)
+cors = CORS(application)
+application.config['CORS_HEADERS'] = 'Content-Type'
 
 parser = ET.XMLParser(recover=True)
 loop = asyncio.get_event_loop()
@@ -112,11 +115,11 @@ def abc(access_token, image_no):
 
 
 
-@app.route('/')
+@application.route('/')
 def initrun():
     return "Python ML Microservice is running"
 
-@app.route('/detectObject')
+@application.route('/detectObject')
 def detectObject():
     image_no = request.args['imageNo']
     # image_no = '0'
@@ -138,7 +141,7 @@ def detectObject():
 
 if __name__ == '__main__':
     print ("Python ML Microservice is running in " + port)
-    app.run(debug=True, port=port)
+    application.run()
 
 
 
