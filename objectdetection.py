@@ -141,7 +141,7 @@ def detectObject():
 
 if __name__ == '__main__':
     print ("Python ML Microservice is running in " + str(port))
-    application.run(port=port)
+    application.run(host="0.0.0.0", port=port)
 
 
 
