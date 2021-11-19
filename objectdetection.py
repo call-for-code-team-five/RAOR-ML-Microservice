@@ -6,6 +6,8 @@ import lxml.etree as ET
 import numpy as np
 from flask import Flask, send_file, send_from_directory, request
 from flask_cors import CORS, cross_origin
+import base64
+from PIL import Image
 
 # port = os.getenv("PORT")
 # apikey = os.getenv("APIKEY")
@@ -104,15 +106,21 @@ def abc(access_token, image_no):
             image = cv2.putText(image, label, (x1, y1 - 5),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,0,0), 1)
 
-    cv2.imwrite("DetectedImage.jpg", image)
+    # cv2.imwrite("DetectedImage" + str(image_no) + ".jpg", image)
     
+    # CV2 to Base64
+    # base64_str = cv2.imencode('.jpg',image)[1].tostring()
+    # base64_str = base64.b64encode(base64_str)
+
+    # CV2 to PIL
+    # image = Image.fromarray(cv2.cvtColor(image,cv2.COLOR_BGR2RGB))
 
 
     # cv2.imshow(window_name, image)
 
     # cv2.waitKey()
     # cv2.destroyAllWindows()
-
+    # return image
 
 
 @application.route('/')
@@ -133,7 +141,8 @@ def detectObject():
     # loop.close()
 
     try:
-        return send_from_directory("", "DetectedImage.jpg")
+        return send_from_directory("", "DetectedImage" + str(image_no) + ".jpg")
+        
     except FileNotFoundError:
         return "File Not Found"
 

@@ -7,3 +7,5 @@ lxml
 numpy
 python-dotenv
 gunicorn
+base64
+pillow
