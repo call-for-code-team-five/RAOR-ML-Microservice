@@ -6,15 +6,14 @@ import lxml.etree as ET
 import numpy as np
 from flask import Flask, send_file, send_from_directory, request
 from flask_cors import CORS, cross_origin
-import base64
-from PIL import Image
 
-# port = os.getenv("PORT")
-# apikey = os.getenv("APIKEY")
-# bucketid = os.getenv("BUCKETID")
-port = 8080
-apikey = "M7m1jpF9nzFVFSqoJusmI7drwf77IR7bfRKm8OdMFIRb"
-bucketid = "roks-c5ooaecl02kmaahb914g-8c2f"
+
+port = os.getenv("PORT")
+apikey = os.getenv("APIKEY")
+bucketid = os.getenv("BUCKETID")
+# port = 8080
+# apikey = "M7m1jpF9nzFVFSqoJusmI7drwf77IR7bfRKm8OdMFIRb"
+# bucketid = "roks-c5ooaecl02kmaahb914g-8c2f"
 
 application = Flask(__name__)
 cors = CORS(application)
